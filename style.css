@@ -1,0 +1,16 @@
+body {
+    background-color: antiquewhite;
+    text-align: center;
+
+}
+
+.calculator {
+    /* display: flex;
+    flex-direction: column; */
+    background-color: hsl(0, 0%, 15%);
+    color: whitesmoke;
+    max-width: 300px;
+    min-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
