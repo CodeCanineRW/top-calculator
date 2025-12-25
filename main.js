@@ -72,7 +72,7 @@ operatorKey.forEach(button => {
         }
         result = operate(operator, stored, current);
         displayUpper(`${result} ${e.target.value}`);
-        displayLower(current);
+        displayLower(0);
         operator = e.target.id;
         stored = result;
         working.length=0;
@@ -96,7 +96,6 @@ const operations = {
     subtract: (a, b) => a - b,
     multiply: (a, b) => a * b, 
     divide: (a, b) => a / b,
-    percent: (a, b) => b / 100,
 };
 
 const operate = function(type, a, b) {
@@ -105,7 +104,8 @@ const operate = function(type, a, b) {
         console.log('Invalid Operation Requested');
         return false;
     }
-    return func(a, b);
+    let result = func(a, b);
+    return Number(result.toFixed(6));
 };
 
 const convertArray = function(array) {
