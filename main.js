@@ -24,7 +24,7 @@ clearKey.addEventListener('click', () => {
     stored = 0;
     operator = null;
     displayLower(0);
-    displayUpper(0);
+    displayUpper('');
 });
 
 numberKey.forEach((button) => {
@@ -32,7 +32,7 @@ numberKey.forEach((button) => {
         working.push(e.target.value);
         displayLower(working.join(''));
         if (operator === null) {
-            displayUpper('clear');
+            displayUpper('');
         }
     });
 });
@@ -49,7 +49,7 @@ operatorKey.forEach(button => {
         let current = convertArray(working);
         let result;
 
-        if (operator == null ){ 
+        if (operator == null && working.length !== 0 ){ 
             operator = e.target.id;
             stored = convertArray(working);
             working.length = 0;
