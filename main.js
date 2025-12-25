@@ -6,9 +6,10 @@ const lowerOutput = document.getElementById('lower');
 const upperOutput = document.getElementById('upper');
 const decimalKey = document.getElementById('decimal');
 const equalsKey = document.getElementById('equals');
+const percentKey = document.getElementById('percent');
 
 let working = [];
-let stored;
+let stored = 0;
 let operator = null;
 
 const displayLower = (entry) => lowerOutput.textContent = entry;
@@ -43,6 +44,13 @@ decimalKey.addEventListener('click', () => {
     }
     displayLower(working.join(''));
 });
+
+percentKey.addEventListener('click', () => {
+    let percent = (convertArray(working) / 100);
+    displayLower(percent);
+    working.unshift('.');
+    
+})
 
 operatorKey.forEach(button => {
     button.addEventListener('click', (e) => {
@@ -88,6 +96,7 @@ const operations = {
     subtract: (a, b) => a - b,
     multiply: (a, b) => a * b, 
     divide: (a, b) => a / b,
+    percent: (a, b) => b / 100,
 };
 
 const operate = function(type, a, b) {
