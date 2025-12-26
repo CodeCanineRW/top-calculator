@@ -7,6 +7,7 @@ const upperOutput = document.getElementById('upper');
 const decimalKey = document.getElementById('decimal');
 const equalsKey = document.getElementById('equals');
 const percentKey = document.getElementById('percent');
+const plusMinusKey = document.getElementById('plusMinus');
 
 let working = [];
 let stored = 0;
@@ -38,9 +39,19 @@ numberKey.forEach((button) => {
     });
 });
 
+
 decimalKey.addEventListener('click', () => {
     if (!working.includes('.')) {
         working.push('.');
+    }
+    displayLower(working.join(''));
+});
+
+plusMinusKey.addEventListener('click', () => {
+    if (working.includes('-')) {
+        working.shift();
+    } else {
+        working.unshift('-');
     }
     displayLower(working.join(''));
 });
